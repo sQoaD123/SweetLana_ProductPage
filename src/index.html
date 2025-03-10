@@ -17,11 +17,21 @@
           </a>
           <nav class="header__menu menu">
             <ul class="menu__list">
-              <li class="menu__item _active"><a href="#">Продукція</a></li>
-              <li class="menu__item"><a href="#">Про мене</a></li>
-              <li class="menu__item"><a href="#">Відгуки</a></li>
-              <li class="menu__item"><a href="#">Переваги</a></li>
-              <li class="menu__item"><a href="#">Замовити</a></li>
+              <li class="menu__item menu__item_products">
+                <a data-goto=".products" class="go_link" href="#">Продукція</a>
+              </li>
+              <li class="menu__item menu__item_custom">
+                <a data-goto=".custom" class="go_link" href="#">Про мене</a>
+              </li>
+              <li class="menu__item menu__item_comments">
+                <a data-goto=".comments" class="go_link" href="#">Відгуки</a>
+              </li>
+              <li class="menu__item menu__item_reasons">
+                <a data-goto=".reasons" class="go_link" href="#">Переваги</a>
+              </li>
+              <li class="menu__item menu__item_form">
+                <a data-goto=".form" class="go_link" href="#">Замовити</a>
+              </li>
             </ul>
           </nav>
           <div class="header__info info-header">
@@ -51,7 +61,10 @@
                 </a>
               </li>
               <li class="info-header__item info-header__item_button">
-                <a href="#" class="info-header__button button button_active"
+                <a
+                  data-goto=".form"
+                  href="#"
+                  class="info-header__button button button_active go_link"
                   >Замовити смаколик</a
                 >
               </li>
@@ -78,12 +91,13 @@
             </h1>
             <div class="text-first__ui">
               <a
+                data-goto=".form"
                 href="#"
-                class="text-first__button button button_active button_full"
+                class="text-first__button button button_active button_full go_link"
                 >Замовити смаколик</a
               >
               <div class="text-first__stars-block stars-block">
-                <div class="stars-block__photos">
+                <figure class="stars-block__photos">
                   <img
                     src="img/first-screen/people/01.webp"
                     alt=""
@@ -104,7 +118,7 @@
                     alt=""
                     class="stars-block__photo"
                   />
-                </div>
+                </figure>
                 <div class="stars-block__info">
                   <div class="stars-block__stars">
                     <svg
@@ -175,29 +189,29 @@
           </div>
           <div class="first-screen__photo-block photo-first">
             <div class="photo-first__body">
-              <div class="photo-first__main-photo">
+              <figure class="photo-first__main-photo">
                 <img src="img/first-screen/foto.webp" alt="" />
-              </div>
+              </figure>
             </div>
-            <div class="photo-first__cake n1">
+            <figure class="photo-first__cake n1">
               <img src="img/first-screen/cakes/01.webp" alt="" />
-            </div>
-            <div class="photo-first__cake n2">
+            </figure>
+            <figure class="photo-first__cake n2">
               <img src="img/first-screen/cakes/02.webp" alt="" />
-            </div>
-            <div class="photo-first__cake n3">
+            </figure>
+            <figure class="photo-first__cake n3">
               <img src="img/first-screen/cakes/03.webp" alt="" />
-            </div>
+            </figure>
           </div>
         </div>
       </section>
       <section class="products">
         <div class="products__container _container">
-          <h3 class="products__title">
+          <h3 class="products__title show-anim">
             Тільки найкраще для Вас: кожен смаколик
             <span>створений із любов'ю</span>
           </h3>
-          <div class="products__buttons">
+          <div class="products__buttons show-anim">
             <a href="#" class="products__button button button_active"
               >Вся продукція</a
             >
@@ -209,10 +223,10 @@
           </div>
           <div class="products__products">
             <div class="products__row">
-              <div class="products__item item-products">
-                <div class="item-products__img">
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img">
                   <img src="img/products/1.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Торт №1</div>
@@ -240,11 +254,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="products__item item-products">
-                <div class="item-products__img">
+              </a>
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img">
                   <img src="img/products/2.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Десерт №1</div>
@@ -271,11 +285,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="products__item item-products">
-                <div class="item-products__img">
+              </a>
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img">
                   <img src="img/products/3.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Печиво №1</div>
@@ -302,11 +316,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="products__item item-products">
-                <div class="item-products__img cake4">
+              </a>
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img cake4">
                   <img src="img/products/4.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Коровай №1</div>
@@ -333,11 +347,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="products__item item-products">
-                <div class="item-products__img">
+              </a>
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img">
                   <img src="img/products/5.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Торт №2</div>
@@ -365,11 +379,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="products__item item-products">
-                <div class="item-products__img">
+              </a>
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img">
                   <img src="img/products/6.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Коровай №2</div>
@@ -396,11 +410,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="products__item item-products">
-                <div class="item-products__img">
+              </a>
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img">
                   <img src="img/products/7.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Торт №3</div>
@@ -427,11 +441,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="products__item item-products">
-                <div class="item-products__img cake4">
+              </a>
+              <a href="#" class="products__item item-products">
+                <figure class="item-products__img">
                   <img src="img/products/8.webp" alt="" />
-                </div>
+                </figure>
                 <div class="item-products__body">
                   <div class="item-products__text-info">
                     <div class="item-products__title">Десерт №2</div>
@@ -458,7 +472,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -563,7 +577,10 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="custom__button button button_active button_full"
+            <a
+              data-goto=".form"
+              href="#"
+              class="custom__button button button_active button_full go_link"
               >Замовити смаколик</a
             >
           </div>
@@ -575,9 +592,9 @@
           <div class="comments__body">
             <div class="comments__item comment">
               <div class="comment__header">
-                <div class="comment__avatar">
+                <figure class="comment__avatar">
                   <img src="img/comments/1.webp" alt="" />
-                </div>
+                </figure>
                 <div class="comment__info">
                   <div class="comment__stars">
                     <div class="comment__star">
@@ -664,9 +681,9 @@
             </div>
             <div class="comments__item comment">
               <div class="comment__header">
-                <div class="comment__avatar">
+                <figure class="comment__avatar">
                   <img src="img/comments/2.webp" alt="" />
-                </div>
+                </figure>
                 <div class="comment__info">
                   <div class="comment__stars">
                     <div class="comment__star">
@@ -753,9 +770,9 @@
             </div>
             <div class="comments__item comment">
               <div class="comment__header">
-                <div class="comment__avatar">
+                <figure class="comment__avatar">
                   <img src="img/comments/3.webp" alt="" />
-                </div>
+                </figure>
                 <div class="comment__info">
                   <div class="comment__stars">
                     <div class="comment__star">
@@ -842,9 +859,9 @@
             </div>
             <div class="comments__item comment">
               <div class="comment__header">
-                <div class="comment__avatar">
+                <figure class="comment__avatar">
                   <img src="img/comments/4.webp" alt="" />
-                </div>
+                </figure>
                 <div class="comment__info">
                   <div class="comment__stars">
                     <div class="comment__star">
@@ -967,9 +984,9 @@
                   консервантів та штучних добавок.
                 </div>
               </div>
-              <div class="reason__img">
+              <figure class="reason__img">
                 <img src="img/reasons/01.webp" alt="" />
-              </div>
+              </figure>
             </div>
             <div class="reasons__item reason">
               <div class="reason__body">
@@ -997,9 +1014,9 @@
                   відповідають вашому настрою та вимогам.
                 </div>
               </div>
-              <div class="reason__img">
+              <figure class="reason__img">
                 <img src="img/reasons/02.webp" alt="" />
-              </div>
+              </figure>
             </div>
             <div class="reasons__item reason">
               <div class="reason__body">
@@ -1027,11 +1044,83 @@
                   клієнта.
                 </div>
               </div>
-              <div class="reason__img">
+              <figure class="reason__img">
                 <img src="img/reasons/03.webp" alt="" />
-              </div>
+              </figure>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="form">
+        <div class="form__cntainer _container">
+          <div class="form__title">Замовити смаколик</div>
+          <form class="form__form" action="">
+            <div class="form__items">
+              <div class="form__item item-form">
+                <div class="item-form__body">
+                  <div class="item-form__text-block">
+                    <div class="item-form__text">Ім’я</div>
+                    <div class="item-form__decoration">:</div>
+                  </div>
+                  <input
+                    type="text"
+                    class="item-form__input"
+                    placeholder="Ваше ім’я"
+                  />
+                </div>
+              </div>
+              <div class="form__item item-form">
+                <div class="item-form__body">
+                  <div class="item-form__text-block">
+                    <div class="item-form__text">Телефон</div>
+                    <div class="item-form__decoration">:</div>
+                  </div>
+                  <input
+                    type="tel"
+                    class="item-form__input"
+                    placeholder="+38 (___) ___ __ __"
+                  />
+                </div>
+              </div>
+              <div class="form__item item-form">
+                <div class="item-form__body">
+                  <div class="item-form__text-block">
+                    <div class="item-form__text">Продукція</div>
+                    <div class="item-form__decoration">:</div>
+                  </div>
+                  <select
+                    class="item-form__input item-form__input_select"
+                    id="products"
+                    name="cities"
+                    required
+                  >
+                    <option value="" selected hidden>
+                      Оберіть що вас цікавить
+                    </option>
+                    <option value="tort1">Торт №1</option>
+                    <option value="desert1">Десерт №1</option>
+                    <option value="cookie1">Печиво №1</option>
+                    <option value="korovai1">Коровай №1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form__item item-form">
+                <div class="item-form__body">
+                  <div class="item-form__text-block">
+                    <div class="item-form__text">Телефон</div>
+                    <div class="item-form__decoration">:</div>
+                  </div>
+                  <textarea
+                    class="item-form__input item-form__input_textarea"
+                    placeholder="Ваш коментар"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="form__button">
+              Замовити смаколик
+            </button>
+          </form>
         </div>
       </section>
     </main>
@@ -1040,15 +1129,15 @@
         <div class="footer__header header-footer">
           <div class="header-footer__body">
             <div class="header-footer__imgs">
-              <div class="header-footer__img">
+              <figure class="header-footer__img">
                 <img src="img/footer/01.webp" alt="" />
-              </div>
-              <div class="header-footer__img">
+              </figure>
+              <figure class="header-footer__img">
                 <img src="img/footer/02.webp" alt="" />
-              </div>
-              <div class="header-footer__img">
+              </figure>
+              <figure class="header-footer__img">
                 <img src="img/footer/03.webp" alt="" />
-              </div>
+              </figure>
             </div>
             <div class="header-footer__title">SweetLana</div>
             <div class="header-footer__logo">
@@ -1063,7 +1152,10 @@
               Ми створюємо десерти з любов'ю, використовуючи лише найкращі
               натуральні інгредієнти.
             </div>
-            <a href="#" class="footer__button button button_active button_full"
+            <a
+              data-goto=".form"
+              href="#"
+              class="footer__button button button_active button_full go_link"
               >Замовити смаколик</a
             >
           </div>

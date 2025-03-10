@@ -134,6 +134,20 @@
       flex: 1 1 100%;
       transition: color 0.3s ease 0s;
     }
+    &::after {
+      content: "";
+      width: 100%;
+      height: 6px;
+      background-color: var(--carrot-color);
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      border-radius: 8px;
+      transition: bottom 0.3s ease 0s;
+      @media (max-width: 992px) {
+        display: none;
+      }
+    }
     @media (any-hover: hover) {
       &:hover {
         a {
@@ -157,17 +171,7 @@
         color: var(--carrot-color);
       }
       &::after {
-        content: "";
-        width: 100%;
-        height: 6px;
-        background-color: var(--carrot-color);
-        position: absolute;
-        left: 0;
         bottom: -3px;
-        border-radius: 8px;
-        @media (max-width: 992px) {
-          display: none;
-        }
       }
     }
   }

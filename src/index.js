@@ -50,3 +50,91 @@ document.addEventListener("DOMContentLoaded", function () {
   handleScroll();
   window.addEventListener("scroll", handleScroll);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = [
+    {
+      section: document.querySelector(".products"),
+      menuItem: document.querySelector(".menu__item_products"),
+    },
+    {
+      section: document.querySelector(".custom"),
+      menuItem: document.querySelector(".menu__item_custom"),
+    },
+    {
+      section: document.querySelector(".comments"),
+      menuItem: document.querySelector(".menu__item_comments"),
+    },
+    {
+      section: document.querySelector(".reasons"),
+      menuItem: document.querySelector(".menu__item_reasons"),
+    },
+    {
+      section: document.querySelector(".form"),
+      menuItem: document.querySelector(".menu__item_form"),
+    },
+  ];
+
+  function checkScroll() {
+    sections.forEach(({ section, menuItem }) => {
+      if (!section || !menuItem) return;
+
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top <= 0 && rect.bottom > 0) {
+        menuItem.classList.add("_active");
+      } else {
+        menuItem.classList.remove("_active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkScroll);
+});
+
+//
+const goLinks = document.querySelectorAll(".go_link[data-goto]");
+if (goLinks.length > 0) {
+  goLinks.forEach((goLink) => {
+    goLink.addEventListener("click", onGoLinkClick);
+  });
+
+  function onGoLinkClick(e) {
+    const goLink = e.target;
+    if (goLink.dataset.goto && document.querySelector(goLink.dataset.goto)) {
+      const gotoBlock = document.querySelector(goLink.dataset.goto);
+      const gotoBlockValue =
+        gotoBlock.getBoundingClientRect().top + pageYOffset + 1;
+
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: "smooth",
+      });
+      e.preventDefault();
+    }
+  }
+}
+
+//
+document.addEventListener("DOMContentLoaded", function () {
+  function onEntry(entries, observer) {
+    entries.forEach((entry) => {
+      console.log("Перевіряємо елемент:", entry.target); // Перевірка
+
+      if (entry.isIntersecting) {
+        console.log("✅ Додаємо _show:", entry.target);
+        entry.target.classList.add("_show");
+        observer.unobserve(entry.target); // Прибираємо спостереження
+      }
+    });
+  }
+
+  let options = {
+    threshold: 0.2, // Тепер 20% видимості активує анімацію
+  };
+
+  let observer = new IntersectionObserver(onEntry, options);
+  let elements = document.querySelectorAll(".show-anim");
+
+  elements.forEach((el) => observer.observe(el));
+});

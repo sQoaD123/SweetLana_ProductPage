@@ -119,18 +119,16 @@ if (goLinks.length > 0) {
 document.addEventListener("DOMContentLoaded", function () {
   function onEntry(entries, observer) {
     entries.forEach((entry) => {
-      console.log("Перевіряємо елемент:", entry.target); // Перевірка
-
       if (entry.isIntersecting) {
         console.log("✅ Додаємо _show:", entry.target);
         entry.target.classList.add("_show");
-        observer.unobserve(entry.target); // Прибираємо спостереження
+        observer.unobserve(entry.target);
       }
     });
   }
 
   let options = {
-    threshold: 0.2, // Тепер 20% видимості активує анімацію
+    threshold: 0.1,
   };
 
   let observer = new IntersectionObserver(onEntry, options);

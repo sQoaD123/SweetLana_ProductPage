@@ -1,20 +1,43 @@
 import "./index.html";
 import "./index.scss";
+import "./js/swipers";
 
 let iconMenu = document.querySelector(".icon-menu__body");
 iconMenu.addEventListener("click", function (e) {
-  let menuBg = document.querySelector(".header__wrapper");
-  let menu = document.querySelector(".header__menu");
-  let phone = document.querySelector(".info-header__item_phone");
-  let button = document.querySelector(".info-header__item_button");
+  // let menuBg = document.querySelector(".header__wrapper");
+  let menu = document.querySelector(".icon-menu__menu");
+  // let phone = document.querySelector(".info-header__item_phone");
+  // let button = document.querySelector(".info-header__item_button");
   let body = document.querySelector("body");
-  menuBg.classList.toggle("_burger-active");
-  menu.classList.toggle("_burger-active");
-  phone.classList.toggle("_burger-active");
-  button.classList.toggle("_burger-active");
+  // menuBg.classList.toggle("_burger-active");
+  menu.classList.toggle("_active");
+  // phone.classList.toggle("_burger-active");
+  // button.classList.toggle("_burger-active");
   body.classList.toggle("_lock");
   iconMenu.classList.toggle("_active");
   e.preventDefault();
+});
+
+const sweetsMenu = document.querySelector(".sweets");
+sweetsMenu.addEventListener("click", function (e) {
+  let sweetsMenuBody = document.querySelector(".sweets__menu-body");
+  let sweetsArrow = document.querySelector(".sweets__arrow");
+  sweetsMenuBody.classList.toggle("_active");
+  sweetsArrow.classList.toggle("_active");
+  sweetsMenu.classList.toggle("_no-hover");
+});
+
+document.addEventListener("click", function (e) {
+  let sweetsMenuBody = document.querySelector(".sweets__menu-body");
+  let sweetsArrow = document.querySelector(".sweets__arrow");
+  if (
+    sweetsMenuBody.classList.contains("_active") &&
+    !sweetsMenu.contains(e.target)
+  ) {
+    sweetsMenuBody.classList.remove("_active");
+    sweetsArrow.classList.remove("_active");
+    sweetsMenu.classList.remove("_no-hover");
+  }
 });
 
 function updateMenuHeight() {
@@ -22,10 +45,7 @@ function updateMenuHeight() {
   const phoneItem = document.querySelector(".info-header__item_phone");
   if (window.innerWidth < 992) {
     const menuHeight = menuList.offsetHeight;
-    let offset = 66;
-    if (window.innerWidth < 767) {
-      offset = 50;
-    }
+    let offset = 60;
     phoneItem.style.top = `${menuHeight + offset}px`;
   } else {
     menuList.style.height = "100%";
@@ -54,15 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const sections = [
     {
-      section: document.querySelector(".products"),
-      menuItem: document.querySelector(".menu__item_products"),
-    },
-    {
       section: document.querySelector(".custom"),
       menuItem: document.querySelector(".menu__item_custom"),
     },
     {
-      section: document.querySelector(".comments"),
+      section: document.querySelector(".comments-slider"),
       menuItem: document.querySelector(".menu__item_comments"),
     },
     {
@@ -120,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function onEntry(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("✅ Додаємо _show:", entry.target);
         entry.target.classList.add("_show");
         observer.unobserve(entry.target);
       }
@@ -136,3 +151,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   elements.forEach((el) => observer.observe(el));
 });
+
+function updateMenuPosition() {
+  const sweetsElement = document.querySelector(".sweets");
+  const menuBodyElement = document.querySelector(".sweets__menu-body");
+
+  if (sweetsElement && menuBodyElement) {
+    const rect = sweetsElement.getBoundingClientRect();
+    const leftOffset = rect.left + window.scrollX - 10;
+
+    menuBodyElement.style.left = `${leftOffset}px`;
+  }
+}
+
+window.addEventListener("load", updateMenuPosition);
+window.addEventListener("resize", updateMenuPosition);

@@ -95,3 +95,51 @@ function initMainSwiper() {
 
 initMainSwiper();
 window.addEventListener("resize", initMainSwiper);
+
+let thumbSlider = new Swiper(".swiper-thumbs", {
+  direction: "vertical",
+  watchSlidesVisibility: true,
+  watchSlidesProgress: true,
+  freeMode: false,
+  loop: true,
+  navigation: {
+    nextEl: ".product-card__swiper-arrow_next",
+    prevEl: ".product-card__swiper-arrow_prev",
+  },
+  breakpoints: {
+    320: {
+      direction: "horizontal",
+      spaceBetween: 4,
+      slidesPerView: 5,
+    },
+    992: {
+      direction: "vertical",
+      spaceBetween: 8,
+      slidesPerView: 6,
+    },
+  },
+});
+
+let mainSlider = new Swiper(".main-slider", {
+  slidesPerView: 1,
+  loop: true,
+  navigation: {
+    nextEl: ".product-card__swiper-arrow_next",
+    prevEl: ".product-card__swiper-arrow_prev",
+  },
+  thumbs: {
+    swiper: thumbSlider,
+  },
+  breakpoints: {
+    320: {
+      direction: "horizontal",
+      spaceBetween: 0,
+    },
+    992: {
+      direction: "vertical",
+      spaceBetween: 16,
+    },
+  },
+});
+
+mainSlider.thumbs.swiper = thumbSlider;
